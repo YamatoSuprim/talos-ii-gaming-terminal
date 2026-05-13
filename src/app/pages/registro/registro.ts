@@ -16,18 +16,91 @@ export class Registro {
   correo = '';
   password = '';
 
-  usuarios: any[] = [];
+  usuarios: any[] = [
+
+    {
+      nombre: 'Endministrator',
+      correo: 'admin@endfield.com'
+    },
+
+    {
+      nombre: 'Ember',
+      correo: 'ember@endfield.com'
+    },
+
+    {
+      nombre: 'Fluorite',
+      correo: 'fluorite@endfield.com'
+    },
+
+    {
+      nombre: 'Perlica',
+      correo: 'perlica@endfield.com'
+    },
+
+    {
+      nombre: 'Wulfen',
+      correo: 'wulfen@endfield.com'
+    },
+
+    {
+      nombre: 'Talos',
+      correo: 'talos@endfield.com'
+    },
+
+    {
+      nombre: 'Operator-X',
+      correo: 'x@endfield.com'
+    },
+
+    {
+      nombre: 'Aegis',
+      correo: 'aegis@endfield.com'
+    },
+
+    {
+      nombre: 'Nova',
+      correo: 'nova@endfield.com'
+    },
+
+    {
+      nombre: 'Oripathy',
+      correo: 'ori@endfield.com'
+    }
+
+  ];
+
   constructor(){
 
-  const datos = localStorage.getItem('usuarios');
+    const datos = localStorage.getItem('usuarios');
 
-  if(datos){
-    this.usuarios = JSON.parse(datos);
+    if(datos){
+
+      this.usuarios = JSON.parse(datos);
+
+    }else{
+
+      localStorage.setItem(
+        'usuarios',
+        JSON.stringify(this.usuarios)
+      );
+
+    }
+
   }
 
-}
-
   registrar(){
+
+    const textoValido = /^[a-zA-Z0-9 ]+$/;
+
+    if(
+      !textoValido.test(this.nombre)
+    ){
+
+      alert('Nombre inválido');
+
+      return;
+    }
 
     const nuevoUsuario = {
       nombre: this.nombre,

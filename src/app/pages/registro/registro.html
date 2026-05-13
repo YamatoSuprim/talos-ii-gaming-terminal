@@ -1,4 +1,4 @@
-<div class="register-container">
+<<div class="register-container">
 
     <div class="register-card">
 
@@ -8,27 +8,34 @@
         type="text"
         placeholder="Nombre"
         [(ngModel)]="nombre"
+        maxlength="20"
         >
 
         <input 
         type="email"
         placeholder="Correo"
         [(ngModel)]="correo"
+        maxlength="30"
         >
 
         <input 
         type="password"
         placeholder="Contraseña"
         [(ngModel)]="password"
+        maxlength="16"
         >
 
         <button (click)="registrar()">
             Crear Cuenta
         </button>
 
-        <div class="users-list">
+        <div 
+        class="users-list"
+        *ngIf="usuarios.length > 0">
 
-            <h2>Operadores Registrados</h2>
+            <h2>
+            Operadores Registrados ({{usuarios.length}})
+            </h2>
 
             <div 
             class="user-card"
@@ -40,6 +47,14 @@
             </div>
 
         </div>
+
+        <p 
+        class="empty-message"
+        *ngIf="usuarios.length === 0">
+
+        No hay operadores registrados
+
+        </p>
 
     </div>
 
