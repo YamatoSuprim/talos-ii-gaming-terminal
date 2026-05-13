@@ -1,0 +1,47 @@
+.navbar-custom{
+    height: 70px;
+
+    background: rgba(10,10,20,0.95);
+
+    border-bottom: 1px solid #ff9d00;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 40px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+}
+
+.logo{
+    color: #ff9d00;
+
+    font-size: 1.5rem;
+
+    font-weight: bold;
+}
+
+.nav-links{
+    display: flex;
+
+    gap: 30px;
+}
+
+.nav-links a{
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover{
+    color: #ff9d00;
+}

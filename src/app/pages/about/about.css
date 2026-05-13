@@ -1,0 +1,46 @@
+.about-container{
+    min-height: 100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
+    url('/images/main-bg.png');
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-card{
+    width: 700px;
+
+    background: rgba(10,10,20,0.9);
+
+    border: 1px solid #ff9d00;
+
+    border-radius: 20px;
+
+    padding: 50px;
+
+    text-align: center;
+
+    color: white;
+}
+
+.about-card h1{
+    color: #ff9d00;
+
+    font-size: 3rem;
+
+    margin-bottom: 30px;
+}
+
+.about-card p{
+    font-size: 1.2rem;
+
+    margin-bottom: 20px;
+
+    color: #d8d8d8;
+}

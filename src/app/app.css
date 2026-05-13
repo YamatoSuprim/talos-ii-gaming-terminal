@@ -1,0 +1,54 @@
+:host{
+    display: block;
+    min-height: 100vh;
+    background: #0a0a0f;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.terminal-container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.terminal-card{
+    background: #15151d;
+    border: 2px solid #ff9d00;
+    border-radius: 15px;
+    padding: 40px;
+    width: 600px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255, 157, 0, 0.3);
+}
+
+.title{
+    color: #ff9d00;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.subtitle{
+    color: #cfcfcf;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.endfield-btn{
+    background: #ff9d00;
+    border: none;
+    color: black;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.endfield-btn:hover{
+    background: #ffb733;
+    transform: scale(1.05);
+}

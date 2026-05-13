@@ -1,0 +1,46 @@
+<div class="register-container">
+
+    <div class="register-card">
+
+        <h1>Registro de Operador</h1>
+
+        <input 
+        type="text"
+        placeholder="Nombre"
+        [(ngModel)]="nombre"
+        >
+
+        <input 
+        type="email"
+        placeholder="Correo"
+        [(ngModel)]="correo"
+        >
+
+        <input 
+        type="password"
+        placeholder="Contraseña"
+        [(ngModel)]="password"
+        >
+
+        <button (click)="registrar()">
+            Crear Cuenta
+        </button>
+
+        <div class="users-list">
+
+            <h2>Operadores Registrados</h2>
+
+            <div 
+            class="user-card"
+            *ngFor="let usuario of usuarios">
+
+                <p>{{usuario.nombre}}</p>
+                <p>{{usuario.correo}}</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
