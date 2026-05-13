@@ -112,3 +112,20 @@ url('/images/main-bg.png');
 
     border-color: #ff9d00;
 }
+
+@media (max-width: 768px){
+
+    .main-title{
+        font-size: 2.5rem;
+    }
+
+    .hub-grid{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hub-card{
+        width: 90%;
+    }
+
+}
