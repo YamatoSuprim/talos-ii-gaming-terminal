@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-registro',
@@ -16,80 +17,31 @@ export class Registro {
   correo = '';
   password = '';
 
-  usuarios: any[] = [
+  usuarios: any[] = [];
 
-    {
-      nombre: 'Endministrator',
-      correo: 'admin@endfield.com'
-    },
-
-    {
-      nombre: 'Ember',
-      correo: 'ember@endfield.com'
-    },
-
-    {
-      nombre: 'Fluorite',
-      correo: 'fluorite@endfield.com'
-    },
-
-    {
-      nombre: 'Perlica',
-      correo: 'perlica@endfield.com'
-    },
-
-    {
-      nombre: 'Wulfen',
-      correo: 'wulfen@endfield.com'
-    },
-
-    {
-      nombre: 'Talos',
-      correo: 'talos@endfield.com'
-    },
-
-    {
-      nombre: 'Operator-X',
-      correo: 'x@endfield.com'
-    },
-
-    {
-      nombre: 'Aegis',
-      correo: 'aegis@endfield.com'
-    },
-
-    {
-      nombre: 'Nova',
-      correo: 'nova@endfield.com'
-    },
-
-    {
-      nombre: 'Oripathy',
-      correo: 'ori@endfield.com'
-    }
-
-  ];
-
-  constructor(){
-
-    const datos = localStorage.getItem('usuarios');
-
-    if(datos){
-
-      this.usuarios = JSON.parse(datos);
-
-    }else{
-
-      localStorage.setItem(
-        'usuarios',
-        JSON.stringify(this.usuarios)
-      );
-
-    }
-
+  constructor(private authService: AuthService){
+    this.usuarios = this.authService.obtenerUsuarios();
   }
 
   registrar(){
+
+    if(
+      this.nombre.trim() === '' ||
+      this.correo.trim() === '' ||
+      this.password.trim() === ''
+    ){
+
+      alert('Complete todos los campos');
+
+      return;
+    }
+
+    if(this.password.length < 4){
+
+      alert('La contraseña es muy corta');
+
+      return;
+    }
 
     const textoValido = /^[a-zA-Z0-9 ]+$/;
 
@@ -102,34 +54,28 @@ export class Registro {
       return;
     }
 
-    const usuarioExiste = this.usuarios.find(
-      usuario => usuario.nombre === this.nombre
+    const resultado = this.authService.registrarUsuario(
+      this.nombre,
+      this.correo,
+      this.password
     );
 
-    if(usuarioExiste){
+    if(resultado.success){
 
-      alert('El operador ya existe');
+      alert(resultado.mensaje);
 
-      return;
+      this.nombre = '';
+      this.correo = '';
+      this.password = '';
+
+      this.usuarios = this.authService.obtenerUsuarios();
+
+    }else{
+
+      alert(resultado.mensaje);
+
     }
 
-    const nuevoUsuario = {
-      nombre: this.nombre,
-      correo: this.correo
-    };
-
-    this.usuarios.push(nuevoUsuario);
-
-    localStorage.setItem(
-      'usuarios',
-      JSON.stringify(this.usuarios)
-    );
-
-    alert('Operador registrado');
-
-    this.nombre = '';
-    this.correo = '';
-    this.password = '';
   }
 
 }

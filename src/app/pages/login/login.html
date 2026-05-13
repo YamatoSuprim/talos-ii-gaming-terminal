@@ -1,0 +1,57 @@
+<div class="register-container">
+
+    <div class="register-card">
+
+        <div *ngIf="!logueado">
+
+            <h1>
+                Iniciar sesión Operador
+            </h1>
+
+            <input
+            type="text"
+            placeholder="Nombre"
+            [(ngModel)]="nombre"
+            >
+
+            <input
+            type="password"
+            placeholder="Contraseña"
+            [(ngModel)]="password"
+            >
+
+            <button (click)="login()">
+                Ingresar
+            </button>
+
+        </div>
+
+        <div
+        class="operator-panel"
+        *ngIf="logueado">
+
+            <h1>
+                OPERADOR CONECTADO
+            </h1>
+
+            <h2>
+                {{usuarioActivo}}
+            </h2>
+
+            <p>
+                Estado: ONLINE
+            </p>
+
+            <p>
+                Acceso autorizado al sistema Talos-II
+            </p>
+
+            <button (click)="logout()">
+                Cerrar Sesión
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
