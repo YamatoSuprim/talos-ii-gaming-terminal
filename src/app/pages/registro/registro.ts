@@ -102,6 +102,17 @@ export class Registro {
       return;
     }
 
+    const usuarioExiste = this.usuarios.find(
+      usuario => usuario.nombre === this.nombre
+    );
+
+    if(usuarioExiste){
+
+      alert('El operador ya existe');
+
+      return;
+    }
+
     const nuevoUsuario = {
       nombre: this.nombre,
       correo: this.correo
